@@ -99,7 +99,7 @@ endif ()
 # Marks the given component as found if both *_LIBRARIES AND *_INCLUDE_DIRS is present.
 #
 macro(set_component_found _component )
-  if (${_component}_LIBRARIES AND ${_component}_INCLUDE_DIRS)
+  if (${_component}_LIBRARY AND ${_component}_INCLUDE_DIRS)
     # message(STATUS "  - ${_component} found.")
     set(${_component}_FOUND TRUE)
   else ()
@@ -236,7 +236,7 @@ endforeach ()
 # Compile the list of required vars
 set(_FFmpeg_REQUIRED_VARS FFMPEG_LIBRARIES FFMPEG_INCLUDE_DIRS)
 foreach (_component ${FFmpeg_FIND_COMPONENTS})
-  list(APPEND _FFmpeg_REQUIRED_VARS ${_component}_LIBRARIES ${_component}_INCLUDE_DIRS)
+  list(APPEND _FFmpeg_REQUIRED_VARS ${_component}_LIBRARY ${_component}_INCLUDE_DIRS)
 endforeach ()
 
 # Give a nice error message if some of the required vars are missing.
